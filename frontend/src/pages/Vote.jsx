@@ -51,56 +51,6 @@ const Vote = () => {
     }
   };
 
-  //  const handleVote = async () => {
-  //     if (!selectedOption) {
-  //       setMessage("Please select an option before voting.");
-  //       return;
-  //     } else {
-  //       navigate("/");
-  //     }
-
-  //     // Check if user has already voted in this poll
-  //     const votedPolls = JSON.parse(localStorage.getItem("votedPolls")) || [];
-
-  //     if (votedPolls.includes(pollId)) {
-  //       setMessage("❌ You have already voted in this poll.");
-  //       return;
-  //     }
-
-  //     try {
-  //       const response = await fetch(`${apiUrl}/api/polls/${pollId}/vote`, {
-  //         method: "POST",
-  //         headers: { "Content-Type": "application/json" },
-  //         body: JSON.stringify({ optionId: selectedOption }),
-  //       });
-
-  //       const data = await response.json();
-  //       if (response.ok) {
-  //         setMessage("✅ Vote submitted successfully!");
-
-  //         // Save poll ID in local storage to prevent multiple votes
-  //         localStorage.setItem(
-  //           "votedPolls",
-  //           JSON.stringify([...votedPolls, pollId])
-  //         );
-
-  //         // Update poll results in UI
-  //         setPoll((prevPoll) => ({
-  //           ...prevPoll,
-  //           options: prevPoll.options.map((option) =>
-  //             option._id === selectedOption
-  //               ? { ...option, votes: option.votes + 1 }
-  //               : option
-  //           ),
-  //         }));
-  //       } else {
-  //         setMessage(`❌ ${data.message}`);
-  //       }
-  //     } catch (error) {
-  //       setMessage("❌ Error submitting vote. Please try again.");
-  //     }
-  //   };
-
   if (!poll)
     return (
       <h2 className="text-center text-lg font-semibold">Loading poll...</h2>
