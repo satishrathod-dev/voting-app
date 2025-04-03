@@ -11,8 +11,13 @@ const pollRoutes = require("./routes/poll.routes")
 
 connectDB()
 
-app.use(cors());
-
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://voting-app-tan-xi.vercel.app/"],
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+  })
+);
 // app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
