@@ -6,6 +6,7 @@ const app = express();
 const connectDB = require("./db/db")
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/user.routes")
+const pollRoutes = require("./routes/poll.routes")
 
 
 connectDB()
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/api", userRoutes)
+app.use("/api", pollRoutes);
 
 
 const PORT = process.env.PORT || 8000
